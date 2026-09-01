@@ -108,6 +108,8 @@ def test_discard_all(bouncer):
         ):
             cur1.execute(prepared_query)
 
+    assert False
+
 
 def test_parse_larger_than_pkt_buf(bouncer):
     long_string = "1" * PKT_BUF_SIZE * 10
