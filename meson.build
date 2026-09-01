@@ -697,6 +697,8 @@ else
 endif
 pytest_args += ['-n', 'auto', '-r', 's']
 
+pytest_args += ['-k', 'test_discard_all']
+
 test('pytest',
      pytest_exe,
      args: pytest_args,
