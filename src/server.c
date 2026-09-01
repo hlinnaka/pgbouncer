@@ -547,6 +547,7 @@ static bool handle_server_work(PgSocket *server, PktHdr *pkt)
 		    && (pkt->len == 1 + 4 + 15 || pkt->len == 1 + 4 + 12)) {	/* size of complete DEALLOCATE/DISCARD ALL */
 			const char *tag;
 			if (mbuf_get_string(&pkt->data, &tag)) {
+			  slog_debug(server, "received CommandComplete with tag \"%s\"", tag);
 				if (strcmp(tag, "DEALLOCATE ALL") == 0 ||
 				    strcmp(tag, "DISCARD ALL") == 0) {
 					free_server_prepared_statements(server);
