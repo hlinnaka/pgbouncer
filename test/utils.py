@@ -800,6 +800,9 @@ class Postgres(QueryRunner):
             pgconf.write("log_disconnections = on\n")
             pgconf.write("logging_collector = off\n")
 
+            pgconf.write("log_statement = all\n")
+            pgconf.write("log_min_duration_statement = 0\n")
+
             # Allow CREATE SUBSCRIPTION to work
             pgconf.write("wal_level = 'logical'\n")
             # Faster logical replication status update so tests with logical replication
