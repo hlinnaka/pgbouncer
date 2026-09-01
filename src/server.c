@@ -543,7 +543,7 @@ static bool handle_server_work(PgSocket *server, PktHdr *pkt)
 		 * expect certain queries to be prepared at the server that are
 		 * not.
 		 */
-		slog_error(server, "received CommandComplete len %d", pkt->len);
+		slog_error(server, "received CommandComplete len %d (client %p)", pkt->len, client);
 		if (is_prepared_statements_enabled(server)
 		    && (pkt->len == 1 + 4 + 15 || pkt->len == 1 + 4 + 12)) {	/* size of complete DEALLOCATE/DISCARD ALL */
 			const char *tag;
