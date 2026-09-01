@@ -94,7 +94,9 @@ void init_var_lookup(const char *cf_track_extra_parameters)
 		"TimeZone",
 		"standard_conforming_strings",
 		"application_name",
+#if 0
 		"default_transaction_read_only",
+#endif
 		NULL
 	};
 	int idx = 0;
